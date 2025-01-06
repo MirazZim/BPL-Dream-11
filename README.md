@@ -27,4 +27,3 @@
 
 ---
 
-Let me know if you'd like any additional details or changes to the README!
