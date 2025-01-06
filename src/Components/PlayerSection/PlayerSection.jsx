@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins }) => {
   const [showAvailable, setShowAvailable] = useState(true);
@@ -20,14 +22,24 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins })
   }, []);
 
   const handleSelectPlayer = (player) => {
-    if (player.biddingPrice > coins) {
-      alert("You don't have enough coins to select this player.");
-    } else {
-      if (!selectedPlayers.find((p) => p.playerId === player.playerId)) {
-        setSelectedPlayers([...selectedPlayers, player]);
-        setCoins(coins - player.biddingPrice); // Deduct player price from coins
-      }
+    if (selectedPlayers.find((p) => p.playerId === player.playerId)) {
+      toast.error("Player already selected.");
+      return;
     }
+
+    if (selectedPlayers.length >= 6) {
+      toast.error("You cannot select more than 6 players.");
+      return;
+    }
+
+    if (player.biddingPrice > coins) {
+      toast.error("You don't have enough coins to select this player.");
+      return;
+    }
+
+    setSelectedPlayers([...selectedPlayers, player]);
+    setCoins(coins - player.biddingPrice); // Deduct player price from coins
+    toast.success("Player selected successfully!");
   };
 
   const handleRemovePlayer = (playerId) => {
@@ -35,11 +47,13 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins })
     if (playerToRemove) {
       setSelectedPlayers(selectedPlayers.filter((p) => p.playerId !== playerId));
       setCoins(coins + playerToRemove.biddingPrice); // Refund player price to coins
+      toast.info("Player removed successfully.");
     }
   };
 
   return (
     <section className="w-[1200px] mx-auto mt-10">
+      <ToastContainer />
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-bold text-lg">
           {showAvailable
