@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const PlayerSection = ({ selectedPlayers, setSelectedPlayers }) => {
+const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins }) => {
   const [showAvailable, setShowAvailable] = useState(true);
   const [players, setPlayers] = useState([]); // Initialize as an empty array
 
@@ -20,30 +20,50 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers }) => {
   }, []);
 
   const handleSelectPlayer = (player) => {
-    if (!selectedPlayers.find((p) => p.playerId === player.playerId)) {
-      setSelectedPlayers([...selectedPlayers, player]);
+    if (player.biddingPrice > coins) {
+      alert("You don't have enough coins to select this player.");
+    } else {
+      if (!selectedPlayers.find((p) => p.playerId === player.playerId)) {
+        setSelectedPlayers([...selectedPlayers, player]);
+        setCoins(coins - player.biddingPrice); // Deduct player price from coins
+      }
+    }
+  };
+
+  const handleRemovePlayer = (playerId) => {
+    const playerToRemove = selectedPlayers.find((p) => p.playerId === playerId);
+    if (playerToRemove) {
+      setSelectedPlayers(selectedPlayers.filter((p) => p.playerId !== playerId));
+      setCoins(coins + playerToRemove.biddingPrice); // Refund player price to coins
     }
   };
 
   return (
     <section className="w-[1200px] mx-auto mt-10">
-      <div className="flex justify-end mb-4">
-        <button
-          onClick={() => setShowAvailable(true)}
-          className={`px-4 py-2 font-bold rounded-l-md ${
-            showAvailable ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'
-          }`}
-        >
-          Available
-        </button>
-        <button
-          onClick={() => setShowAvailable(false)}
-          className={`px-4 py-2 font-bold rounded-r-md ${
-            !showAvailable ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'
-          }`}
-        >
-          Selected ({selectedPlayers.length})
-        </button>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="font-bold text-lg">
+          {showAvailable
+            ? 'Available Players'
+            : `Selected Player (${selectedPlayers.length}/6)`}
+        </h2>
+        <div className="flex">
+          <button
+            onClick={() => setShowAvailable(true)}
+            className={`px-4 py-2 font-bold rounded-l-md ${
+              showAvailable ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'
+            }`}
+          >
+            Available
+          </button>
+          <button
+            onClick={() => setShowAvailable(false)}
+            className={`px-4 py-2 font-bold rounded-r-md ${
+              !showAvailable ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'
+            }`}
+          >
+            Selected ({selectedPlayers.length})
+          </button>
+        </div>
       </div>
 
       {showAvailable ? (
@@ -75,11 +95,6 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers }) => {
                     {player.role}
                   </p>
                 </div>
-                {/* Batting and Bowling Type */}
-                <div className="mt-2 text-sm text-gray-600">
-                  <p>Batting: {player.battingType}</p>
-                  <p>Bowling: {player.bowlingType}</p>
-                </div>
                 {/* Bidding Price */}
                 <p className="mt-2 font-bold text-yellow-500">
                   Price: ${player.biddingPrice.toLocaleString()}
@@ -100,39 +115,44 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers }) => {
           {selectedPlayers.length === 0 ? (
             <p className="text-center text-gray-500">No players selected yet.</p>
           ) : (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="flex flex-col gap-4">
               {selectedPlayers.map((player) => (
                 <div
                   key={player.playerId}
-                  className="border rounded-lg p-4 shadow-md flex flex-col items-center bg-white"
+                  className="flex items-center border rounded-lg p-4 shadow-md bg-white"
                 >
+                  {/* Player Image */}
                   <img
                     src={player.image || 'https://via.placeholder.com/150'}
                     alt={player.name}
-                    className="rounded-lg w-full h-[200px] object-contain mb-4"
+                    className="rounded-lg w-[100px] h-[100px] object-contain"
                   />
-                  <h2 className="font-bold text-xl text-center">{player.name}</h2>
-                  <div className="mt-2 text-sm text-gray-600">
-                    <p className="flex items-center">
-                      <span className="mr-2">🌍</span>
-                      {player.country}
-                    </p>
-                    <p className="flex items-center mt-1">
-                      <span className="mr-2">🏏</span>
-                      {player.role}
+                  {/* Player Details */}
+                  <div className="ml-4 flex-grow">
+                    <h2 className="font-bold text-lg">{player.name}</h2>
+                    <p className="text-sm text-gray-600">{player.role}</p>
+                    <p className="font-bold text-yellow-500">
+                      Price: ${player.biddingPrice.toLocaleString()}
                     </p>
                   </div>
-                  <div className="mt-2 text-sm text-gray-600">
-                    <p>Batting: {player.battingType}</p>
-                    <p>Bowling: {player.bowlingType}</p>
-                  </div>
-                  <p className="mt-2 font-bold text-yellow-500">
-                    Price: ${player.biddingPrice.toLocaleString()}
-                  </p>
+                  {/* Remove Player Button */}
+                  <button
+                    onClick={() => handleRemovePlayer(player.playerId)}
+                    className="px-4 py-2 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 transition"
+                  >
+                    🗑
+                  </button>
                 </div>
               ))}
             </div>
           )}
+          {/* Add More Player Button */}
+          <button
+            onClick={() => setShowAvailable(true)}
+            className="mt-6 px-6 py-3 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-500 shadow-md"
+          >
+            Add More Player
+          </button>
         </div>
       )}
     </section>
