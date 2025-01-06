@@ -53,7 +53,7 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins })
 
   const validateCoins = (requiredCoins) => {
     if (requiredCoins > coins) {
-      toast.error("Your coin balance does not match with the available balance in the navbar. Please claim more coins.");
+      toast.error("You have Insufficient Balance. Please claim more coins.");
       return false;
     }
     return true;

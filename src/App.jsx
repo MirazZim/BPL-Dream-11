@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Banner from './Components/Banner/Banner';
 import NavBar from './Components/NavBar/NavBar';
 import PlayerSection from './Components/PlayerSection/PlayerSection';
+import NewsletterSection from './Components/NewsletterSection/NewsletterSection';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const [coins, setCoins] = useState(0);
@@ -22,6 +24,9 @@ function App() {
         coins={coins}
         setCoins={setCoins}
       />
+      <NewsletterSection></NewsletterSection>
+      <Footer></Footer>
+
     </>
   );
 }

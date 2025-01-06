@@ -3,7 +3,7 @@ import Logo from '../../assets/logo.png';
 
 const NavBar = ({ coins }) => {
   return (
-    <nav className="absolute w-[1320px] h-[72px] left-[140px] top-[50px] flex flex-row justify-start items-center gap-[632px] p-0 bg-white shadow-md">
+    <nav className="relative w-[1320px] h-[72px]  top-[50px] flex flex-row justify-start items-center gap-[100px] p-0 bg-white shadow-md mx-auto">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
         {/* Logo Section */}
         <div className="flex items-center">
