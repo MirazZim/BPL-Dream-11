@@ -1,5 +1,5 @@
-![logo](https://github.com/user-attachments/assets/2e675903-9dce-45c7-a82a-308b51878fff)
-# BPL Dream 11
+![logo](https://github.com/user-attachments/assets/2e675903-9dce-45c7-a82a-308b51878fff) # BPL Dream 11
+
 
 ## Description
 **BPL Dream 11** is a fantasy cricket team selection web application. It allows users to assemble their ultimate Dream 11 team by selecting players within their budget. Users can also subscribe to the newsletter to stay updated on the latest news and offers.
