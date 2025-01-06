@@ -1,0 +1,155 @@
+{
+    "players": [
+      {
+        "playerId": 1,
+        "name": "Virat Kohli",
+        "country": "India",
+        "image": "https://i.ibb.co.com/CJ9Yvtw/d8209588924377a85965e305401e924d.jpg",
+        "role": "Batsman",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm medium",
+        "biddingPrice": 2000000
+      },
+      {
+        "playerId": 2,
+        "name": "Steve Smith",
+        "country": "Australia",
+        "image": "https://i.ibb.co.com/PhgcRmd/42867eae-2fed-4fe7-8a2f-6c68cbafa7ab.jpg",
+        "role": "Batsman",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm leg spin",
+        "biddingPrice": 1800000
+      },
+      {
+        "playerId": 3,
+        "name": "Jasprit Bumrah",
+        "country": "India",
+        "image": "https://i.ibb.co.com/XFFvQqF/Jasprit-Bumrah.jpg",
+        "role": "Bowler",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm fast",
+        "biddingPrice": 2200000
+      },
+      {
+        "playerId": 4,
+        "name": "Ben Stokes",
+        "country": "England",
+        "image":"https://i.ibb.co.com/rH4XwPH/Ben-Stokes-Wallpaper.jpg",
+        "role": "All-rounder",
+        "battingType": "Left-handed",
+        "bowlingType": "Right-arm medium",
+        "biddingPrice": 2500000
+      },
+      {
+        "playerId": 5,
+        "name": "Rashid Khan",
+        "country": "Afghanistan",
+        "image": "https://i.ibb.co.com/cccg4Hf/Rashid-Khan.jpg",
+        "role": "Bowler",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm leg spin",
+        "biddingPrice": 1700000
+      },
+      {
+        "playerId": 6,
+        "name": "Kane Williamson",
+        "country": "New Zealand",
+        "image": "https://i.ibb.co.com/Yhwr2Tr/image.jpg",
+        "role": "Batsman",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm off spin",
+        "biddingPrice": 1600000
+      },
+      {
+        "playerId": 7,
+        "name": "Andre Russell",
+        "country": "West Indies",
+        "image":"https://i.ibb.co.com/0ZxPFX3/IPL-2023-Birthday-boy-Russell-thrills-KKR-fans.jpg",
+        "role": "All-rounder",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm fast medium",
+        "biddingPrice": 2400000
+      },
+      {
+        "playerId": 8,
+        "name": "Marnus Labuschagne",
+        "country": "Australia",
+        "image": "https://i.ibb.co.com/2PjYTWH/b0ece9a7-49c3-4f80-a2c4-0a05766bcc07.jpg",
+        "role": "Batsman",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm leg spin",
+        "biddingPrice": 1500000
+      },
+      {
+        "playerId": 9,
+        "name": "Shaheen Afridi",
+        "country": "Pakistan",
+        "image": "https://i.ibb.co.com/ZGqJh9q/797a17c2-d5d5-4dff-9fc7-e8f3ad10ce4c.jpg",
+        "role": "Bowler",
+        "battingType": "Left-handed",
+        "bowlingType": "Left-arm fast",
+        "biddingPrice": 2100000
+      },
+      {
+        "playerId": 10,
+        "name": "Shakib Al Hasan",
+        "country": "Bangladesh",
+        "image": "https://i.ibb.co.com/2Sy6xr2/Shakib-Al-Hasan.jpg",
+        "role": "All-rounder",
+        "battingType": "Left-handed",
+        "bowlingType": "Left-arm orthodox spin",
+        "biddingPrice": 2300000
+      },
+      {
+        "playerId": 11,
+        "name": "Rohit Sharma",
+        "country": "India",
+        "image": "https://i.ibb.co.com/j6j9gq9/Rohit-Sharma.jpg",
+        "role": "Batsman",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm off spin",
+        "biddingPrice": 1900000
+      },
+      {
+        "playerId": 12,
+        "name": "Quinton de Kock",
+        "country": "South Africa",
+        "image": "https://i.ibb.co.com/RyC2FHY/Quinton-de-cock-sad-wallpapers.jpg",
+        "role": "Wicket-keeper Batsman",
+        "battingType": "Left-handed",
+        "bowlingType": "N/A",
+        "biddingPrice": 2000000
+      },
+      {
+        "playerId": 13,
+        "name": "Trent Boult",
+        "country": "New Zealand",
+        "image": "https://i.ibb.co.com/BcVhNr7/Trent-boult-fan.jpg",
+        "role": "Bowler",
+        "battingType": "Right-handed",
+        "bowlingType": "Left-arm fast",
+        "biddingPrice": 1800000
+      },
+      {
+        "playerId": 14,
+        "name": "David Warner",
+        "country": "Australia",
+        "image": "https://i.ibb.co.com/PgdwSqq/David-Warner-wallpaper.jpg",
+        "role": "Batsman",
+        "battingType": "Left-handed",
+        "bowlingType": "Right-arm leg spin",
+        "biddingPrice": 2000000
+      },
+      {
+        "playerId": 15,
+        "name": "Hardik Pandya",
+        "country": "India",
+        "image": "https://i.ibb.co.com/ThN6XTk/Hardik-Pandya-Wallpaper.jpg",
+        "role": "All-rounder",
+        "battingType": "Right-handed",
+        "bowlingType": "Right-arm fast medium",
+        "biddingPrice": 2300000
+      }
+    ]
+  }
+  
