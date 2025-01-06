@@ -51,6 +51,14 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins })
     }
   };
 
+  const validateCoins = (requiredCoins) => {
+    if (requiredCoins > coins) {
+      toast.error("Your coin balance does not match with the available balance in the navbar. Please claim more coins.");
+      return false;
+    }
+    return true;
+  };
+
   return (
     <section className="w-[1200px] mx-auto mt-10">
       <ToastContainer />
@@ -115,7 +123,11 @@ const PlayerSection = ({ selectedPlayers, setSelectedPlayers, coins, setCoins })
                 </p>
                 {/* Choose Player Button */}
                 <button
-                  onClick={() => handleSelectPlayer(player)}
+                  onClick={() => {
+                    if (validateCoins(player.biddingPrice)) {
+                      handleSelectPlayer(player);
+                    }
+                  }}
                   className="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600 transition"
                 >
                   Choose Player

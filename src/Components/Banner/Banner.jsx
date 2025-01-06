@@ -3,7 +3,7 @@ import shadowBackground from "../../assets/bg-shadow.png"; // Import the shadow 
 
 const Banner = ({ coins, setCoins }) => {
     const handleAddCoins = () => {
-        setCoins((prevCoins) => prevCoins + 50000); // Increment coins by 1
+        setCoins((prevCoins) => prevCoins + 500000); // Increment coins by 1
       };
 
     return (
